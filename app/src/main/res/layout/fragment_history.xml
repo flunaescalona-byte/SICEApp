@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp"
+        android:paddingTop="40dp"
+        android:background="@color/bg_secondary"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📊 Historial"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnGeneratePdf"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="🖨️ PDF"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:background="@drawable/btn_primary"
+            android:paddingHorizontal="12dp"/>
+    </LinearLayout>
+
+    <!-- FILTROS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/bg_secondary"
+        android:padding="12dp">
+
+        <!-- TIPO: MES / SEMANA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btnFilterMonth"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="📅 Por mes"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/btn_primary"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterWeek"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="📆 Por semana"
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:background="@drawable/btn_outline"/>
+        </LinearLayout>
+
+        <!-- FILTRO MES -->
+        <LinearLayout
+            android:id="@+id/panelMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="2"
+                android:background="@drawable/input_form_bg"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="8dp">
+                <Spinner
+                    android:id="@+id/spinnerMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="12dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:background="@drawable/input_form_bg"
+                android:gravity="center_vertical">
+                <Spinner
+                    android:id="@+id/spinnerYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="12dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- FILTRO SEMANA -->
+        <LinearLayout
+            android:id="@+id/panelWeek"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/input_form_bg"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+            <Spinner
+                android:id="@+id/spinnerWeek"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <!-- FILTRO USUARIO -->
+        <LinearLayout
+            android:id="@+id/panelUser"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/input_form_bg"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+            <Spinner
+                android:id="@+id/spinnerUser"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"/>
+        </LinearLayout>
+
+        <!-- TOGGLE OCULTAS (solo admin) -->
+        <Button
+            android:id="@+id/btnToggleHidden"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="👁️ Ver ocultas"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"
+            android:background="@drawable/btn_outline"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"/>
+
+        <!-- BOTÓN FILTRAR -->
+        <Button
+            android:id="@+id/btnApplyFilter"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="🔍 Filtrar"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:background="@drawable/btn_primary"/>
+    </LinearLayout>
+
+    <!-- RESUMEN -->
+    <LinearLayout
+        android:id="@+id/summaryContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@color/bg_primary"
+        android:visibility="gone">
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:background="@drawable/card_bg" android:padding="8dp"
+            android:gravity="center" android:layout_marginEnd="4dp">
+            <TextView android:id="@+id/tvTotal"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/accent_blue" android:textSize="20sp" android:textStyle="bold" android:text="0"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/text_muted" android:textSize="9sp" android:text="TOTAL" android:fontFamily="monospace"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:background="@drawable/card_bg" android:padding="8dp"
+            android:gravity="center" android:layout_marginEnd="4dp">
+            <TextView android:id="@+id/tvCompleted"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#34d399" android:textSize="20sp" android:textStyle="bold" android:text="0"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/text_muted" android:textSize="9sp" android:text="COMPLET." android:fontFamily="monospace"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:background="@drawable/card_bg" android:padding="8dp"
+            android:gravity="center" android:layout_marginEnd="4dp">
+            <TextView android:id="@+id/tvInProgress"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#fbbf24" android:textSize="20sp" android:textStyle="bold" android:text="0"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/text_muted" android:textSize="9sp" android:text="EN PROG." android:fontFamily="monospace"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:background="@drawable/card_bg" android:padding="8dp"
+            android:gravity="center">
+            <TextView android:id="@+id/tvPending"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#38bdf8" android:textSize="20sp" android:textStyle="bold" android:text="0"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="@color/text_muted" android:textSize="9sp" android:text="PEND." android:fontFamily="monospace"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateTint="#0ea5e9"
+        android:visibility="gone"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="// sin actividades en este período"
+        android:textColor="@color/text_muted"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:fontFamily="monospace"
+        android:layout_marginTop="48dp"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:clipToPadding="false"/>
+
+</LinearLayout>

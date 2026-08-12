@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- TABS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bg_secondary"
+        android:paddingTop="40dp">
+
+        <Button
+            android:id="@+id/tabMiPerfil"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="👤 Mi Perfil"
+            android:textSize="13sp"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/btn_primary"/>
+
+        <Button
+            android:id="@+id/tabEquipo"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="👥 Equipo"
+            android:textSize="13sp"
+            android:textColor="@color/text_muted"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <!-- MI PERFIL -->
+    <ScrollView
+        android:id="@+id/panelMiPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- PROFILE CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="20dp"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/imgPhoto"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/circle_bg"
+                    android:clipToOutline="true"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnChangePhoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="📷 Foto"
+                        android:textColor="@color/accent_blue"
+                        android:textSize="12sp"
+                        android:background="@drawable/btn_outline"
+                        android:paddingHorizontal="12dp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <Button
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="✏️ Editar perfil"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:background="@drawable/btn_outline"
+                        android:paddingHorizontal="12dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tvPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:background="@drawable/badge_bg"/>
+            </LinearLayout>
+
+            <!-- STATUS SELECTOR -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="// cambiar mi estado"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:layout_marginBottom="12dp"/>
+
+                <Button android:id="@+id/btnAvailable"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="🟢 Disponible"
+                    android:textColor="#10b981"
+                    android:background="@drawable/btn_status_green"/>
+
+                <Button android:id="@+id/btnDeployed"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="🔴 Desplegado"
+                    android:textColor="#ef4444"
+                    android:background="@drawable/btn_status_red"
+                    android:layout_marginTop="8dp"/>
+
+                <Button android:id="@+id/btnOffDuty"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="🟡 Saliente de Servicio"
+                    android:textColor="#f59e0b"
+                    android:background="@drawable/btn_status_yellow"
+                    android:layout_marginTop="8dp"/>
+
+                <Button android:id="@+id/btnCommission"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="🟣 En Comisión"
+                    android:textColor="#8b5cf6"
+                    android:background="@drawable/btn_status_purple"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="🚪 Cerrar sesión"
+                android:textColor="#f87171"
+                android:background="@drawable/btn_danger"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- EQUIPO -->
+    <LinearLayout
+        android:id="@+id/panelEquipo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerEquipo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+</LinearLayout>

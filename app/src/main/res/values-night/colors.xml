@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fondos -->
+    <color name="bg_primary">#060d1f</color>
+    <color name="bg_secondary">#0a1628</color>
+    <color name="bg_card">#0f1f3d</color>
+    <color name="bg_input">#0f1f3d</color>
+    <color name="border_color">#2d5a9e</color>
+
+    <!-- Textos - todos claros y visibles -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#cbd5e1</color>
+    <color name="text_muted">#94a3b8</color>
+
+    <!-- Acentos -->
+    <color name="accent_blue">#38bdf8</color>
+    <color name="accent_green">#34d399</color>
+    <color name="accent_yellow">#fbbf24</color>
+    <color name="accent_red">#f87171</color>
+
+    <!-- Botones -->
+    <color name="btn_border">#2d5a9e</color>
+    <color name="btn_text">#e2e8f0</color>
+</resources>

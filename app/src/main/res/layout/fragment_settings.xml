@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Configuraciones"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- VERSIÓN -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="// aplicación"
+            android:textColor="@color/accent_blue"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Versión actual"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/tvCurrentVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="v1.0"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rowNewVersion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nueva versión disponible"
+                    android:textColor="#34d399"
+                    android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/tvNewVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#34d399"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvUpToDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="✅ La app está actualizada"
+                android:textColor="#34d399"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btnCheckUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="🔍 Buscar actualización"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:background="@drawable/btn_primary"/>
+
+            <Button
+                android:id="@+id/btnDownloadUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="⬇️ Descargar e instalar"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:background="@drawable/btn_primary"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- NOTIFICACIONES -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="// notificaciones"
+            android:textColor="@color/accent_blue"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Push notifications -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔔 Notificaciones push"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alertas de tareas y comentarios"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+                <Switch
+                    android:id="@+id/switchNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="#0ea5e9"
+                    android:trackTint="#1e3a6e"/>
+            </LinearLayout>
+
+            <!-- Sonido -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔊 Sonido"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reproducir sonido al recibir notificación"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+                <Switch
+                    android:id="@+id/switchSound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="#0ea5e9"
+                    android:trackTint="#1e3a6e"/>
+            </LinearLayout>
+
+            <!-- Vibración -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📳 Vibración"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vibrar al recibir notificación"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+                <Switch
+                    android:id="@+id/switchVibration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="#0ea5e9"
+                    android:trackTint="#1e3a6e"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- DESCARGAS -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="// descargas"
+            android:textColor="@color/accent_blue"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📁 Carpeta de descargas"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvDownloadPath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="12dp"/>
+
+            <Button
+                android:id="@+id/btnOpenDownloads"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="📂 Abrir carpeta de descargas"
+                android:textColor="@color/accent_blue"
+                android:textSize="13sp"
+                android:background="@drawable/btn_outline"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/bg_secondary"
+        android:paddingTop="40dp">
+
+        <!-- FILA 1: Volver + Título + Editar + Progress -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:background="@drawable/btn_outline"
+                android:tint="#64748b"
+                android:layout_marginEnd="12dp"/>
+
+            <TextView
+                android:id="@+id/tvTaskTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="2"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:visibility="gone"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="✏️ Editar"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:background="@drawable/btn_outline"
+                android:paddingHorizontal="12dp"
+                android:visibility="gone"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- FILA 2: Toggle ocultar (solo admin) -->
+        <Button
+            android:id="@+id/btnToggleHidden"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="🙈 Ocultar tarea del calendario"
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"
+            android:background="@android:color/transparent"
+            android:gravity="start|center_vertical"
+            android:paddingStart="12dp"
+            android:layout_marginBottom="6dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- META -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_bg"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView android:id="@+id/tvAssigned"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"/>
+
+                <TextView android:id="@+id/tvDates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"/>
+
+                <TextView android:id="@+id/tvTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"/>
+
+                <TextView android:id="@+id/tvCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <!-- STATUS -->
+            <Spinner
+                android:id="@+id/spinnerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/card_bg"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- COMMENTS TITLE -->
+            <TextView
+                android:id="@+id/tvCommentsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="// comentarios"
+                android:textColor="@color/accent_blue"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ADD COMMENT -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@color/bg_secondary">
+
+        <EditText
+            android:id="@+id/etComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escribe un comentario..."
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:maxLines="3"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- PREVIEW FOTOS -->
+        <HorizontalScrollView
+            android:id="@+id/scrollPhotos"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:id="@+id/photosContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"/>
+        </HorizontalScrollView>
+
+        <!-- BOTONES -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btnCamera"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@android:drawable/ic_menu_camera"
+                android:background="@drawable/btn_outline"
+                android:tint="#64748b"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageButton
+                android:id="@+id/btnGallery"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:background="@drawable/btn_outline"
+                android:tint="#64748b"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/tvPhotoCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"
+                android:fontFamily="monospace"/>
+
+            <Button
+                android:id="@+id/btnSendComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enviar"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/btn_primary"
+                android:paddingHorizontal="16dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

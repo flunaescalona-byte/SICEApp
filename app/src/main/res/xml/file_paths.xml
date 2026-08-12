@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path name="cache" path="/"/>
+    <external-files-path name="my_images" path="Pictures/"/>
+    <external-path name="downloads" path="Download/"/>
+    <external-path name="sice_downloads" path="Download/SICE/"/>
+</paths>

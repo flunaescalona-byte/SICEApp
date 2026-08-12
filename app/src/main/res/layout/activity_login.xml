@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#0d1117"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:minHeight="600dp">
+
+        <!-- LOGO -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logo_sice"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_bg"
+            android:clipToOutline="true"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- TITULO -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SICE"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='Destacamento de Montaña N.° 8 "Tucapel"'
+        android:textColor="#4a7c3f"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sistema de Gestión de Tareas"
+            android:textColor="#6e7681"
+            android:textSize="11sp"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- DIVIDER -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2d5a1b"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- ERROR MESSAGE -->
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#f85149"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:background="#1af85149"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- EMAIL -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CORREO ELECTRÓNICO"
+            android:textColor="#6e7681"
+            android:textSize="10sp"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:inputType="textEmailAddress"
+            android:hint="usuario@sice.cl"
+
+            android:textColor="#e6edf3"
+            android:textSize="15sp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/input_bg"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- PASSWORD -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONTRASEÑA"
+            android:textColor="#6e7681"
+            android:textSize="10sp"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="24dp">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:hint="••••••••"
+
+                android:textColor="#e6edf3"
+                android:textSize="15sp"
+                android:paddingHorizontal="16dp"
+                android:paddingEnd="48dp"
+                android:background="@drawable/input_bg"/>
+
+            <ImageButton
+                android:id="@+id/btnTogglePassword"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="4dp"
+                android:src="@android:drawable/ic_menu_view"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="#6e7681"/>
+        </FrameLayout>
+
+        <!-- LOGIN BUTTON -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Ingresar al sistema →"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_primary"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- PROGRESS -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:indeterminateTint="#4a7c3f"/>
+
+        <!-- FOOTER -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='SICE — Destacamento de Montaña N.° 8 "Tucapel"'
+        android:textColor="#30363d"
+        android:textSize="10sp"
+        android:layout_marginTop="32dp"/>
+
+    </LinearLayout>
+</ScrollView>
