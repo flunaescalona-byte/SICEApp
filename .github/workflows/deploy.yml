@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del código
+      - name: Checkout del codigo
         uses: actions/checkout@v4
 
       - name: Configurar JDK 17
@@ -28,7 +28,7 @@ jobs:
         run: |
           echo "$KEYSTORE_BASE64" | base64 --decode > app/sice_nuevo.jks
 
-      - name: Compilar APK (Release)
+      - name: Compilar APK Release
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
@@ -39,7 +39,7 @@ jobs:
             -Pandroid.injected.signing.key.alias=$KEYSTORE_ALIAS \
             -Pandroid.injected.signing.key.password=$KEYSTORE_PASSWORD
 
-      - name: Subir APK al servidor cPanel vía SFTP
+      - name: Subir APK al servidor cPanel via SFTP
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SFTP_HOST }}
